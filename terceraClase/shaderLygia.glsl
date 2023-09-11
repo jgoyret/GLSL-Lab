@@ -14,14 +14,12 @@ uniform float u_time;
 #include "../lygia/simulate/fluidSolver.glsl"
 
 void main() {
-    
-    
+
 	vec2 uv = gl_FragCoord.xy/u_resolution;
 
     float color = hex(uv, 0.5);
 
     float color_ = grain(vec2(color * u_time), uv * u_time, 1.);
 
- 
 	gl_FragColor = vec4(vec3(color_), 1.); 
 }
