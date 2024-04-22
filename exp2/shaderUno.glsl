@@ -9,7 +9,6 @@ uniform float u_time;
 #define PI 3.1415926535;
 
 #include "../assets.glsl"
-#include "../lygia/filter/fibonacciBokeh.glsl"
 #include "../lygia/distort/grain.glsl"
 
 float plot(vec2 st,float pct){
@@ -33,7 +32,7 @@ void main(){
     color1=(1.-pct1)*color1+pct1*vec3(0.,1.,0.)*u_time*.1;
     color2=(1.-pct2)*color2+pct2*vec3(1.,0.,0.)*u_time*.1;
     
-    vec3 color=mix(color1,color2,tan(u_time));
+    vec3 color=mix(color1,color2,cos(u_time*.1));
     
-    gl_FragColor=vec4(color,1.);
+    gl_FragColor=vec4(fract(color),1.);
 }
