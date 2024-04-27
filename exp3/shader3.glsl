@@ -21,7 +21,7 @@ void main(){
 	float color_=mix(color2,color1,cos(u_time*PI/9.)/uv.y);
 	vec3 colorPal=pal(color_,vec3(.062,.218,.438),vec3(1.073,.114,.278),vec3(2.385,3.138,.485),vec3(1.672,.502,1.332));
 	
-	gl_FragColor=vec4(colorPal,1.);
+	gl_FragColor=vec4(fract(colorPal*1.),1.);
 }
 
 //orange-blue
